@@ -1,0 +1,42 @@
+Siempre hay que poner un Verbo en relaciones sobre la accion para relacionar las tablas (actor <actua> pelicula)
+Las relaciones son tablas nuevas (a veces) en los esquemas
+Doble linea significa total que significa que todas las cosas de la tabla tiene una relacion con la otra (todas las peliculas tienen actores entonces hay relacion con todos cada pelicula tiene actor) En esto no puede haber N:M como mucho puede tener 1:N o 0:N cosas asi
+5:10 minimo 5 maximo 10 (Los actores tienen que haber participado en 5 peliculas como minimo y maximo en 10)
+1:N minimo 1 no hay maximo (no hay q decir nada)
+Hay relaciones que pueden relacionarse con la misma tabla y se llaman reflexivas (un actor es incompatible con otro actor entonce como se usa 2 veces es de este tipo)
+En los diagramas para decir que es una clave principal hay que subrallar
+Multivalor significa que se puede extraer mas de un material de una mina por ejemplo (circulo con doble raya)
+Si es una relacion con DataHora siempre tiene que ser N:M
+Parcial= 0:N
+Cosas como grado mirar si van en relaciones porque pude ser que sea Una especialidad tiene un 8 y en otra un 5 si no esta en la relacion se dice que tiene un 8 en todo o lo q ponga
+
+N:M significa 1 de la tabla puede con varios en los 2 lados
+1:1 significa que solo 1 de la tabla puede con 1 en los 2 lados
+1:N significa que en un lado de la tabla solo puede 1 con 1 y en el otro que puede 1 con varios
+Pagina 17 UF1 Introduccio a les bases de dades
+
+SIEMPRE que la relacion tenga atributos es N:M SIEMPRE
+
+En relacions debiles siempre es relacion 1:N 
+Se pone las relaciones con doble linea
+Las entidades debiles necesitan de otra entidad Fuerte. Tiene que tener esa dependencia  [fuerte] <Relacion 1:N> [[Debil]] 
+Pagina 39 UF1 Introduccio a les bases de dades
+Doble linia en relacion significa que es debil hacia esa otra entidad
+
+Relacions Ternaries
+Pagina 41 UF1 Introduccio a les bases de dades
+Poner ejemplos fisicos para que se mas facilz
+Ponerles claves primarias a las tablas implicadas para ejemplos
+(pueden ser mas de 3)
+
+
+Linia curvada significa o una o otra
+
+Triangulos
+digunta es una o otra no puede ser mas q una (se identifica con una s)
+y solapada es q pueden ser varias (se identifica con una o)
+Una principal y minimo 2 q sean las siguientes (pueden ser 4 o mas la cosa es q sen distintas cosas asi [ejemplos es "Ejemplo Relaciones de 3.dia"])
+En las siguientes no pueden tener minicampos en comun
+
+
+En lo de escribir las cosas si es debiles se escrie por ejemplo(CinemaCIF(PK,FK)) asi en las 2

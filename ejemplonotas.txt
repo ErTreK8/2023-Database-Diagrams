@@ -1,0 +1,6 @@
+Persona:{DNI(PK), dataNaix, nom, CiutatCp(FK)}
+Local:{nom(PK), capacitat, lat, alt}
+Email{email(PK), LolcalNom(PK,FK)}
+Ciutat:{cp(PK), nom}
+Accedir{personaDNI (PK,FK), localNom (PK,FK), data (PK)}
+Prohibir:{personaDNI (PK,FK), localNom (PK,FK), data (PK), temps}

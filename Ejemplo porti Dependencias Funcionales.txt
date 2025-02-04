@@ -1,0 +1,125 @@
+---------------------------------
+Ejemplo Por Porti de un ejercicio
+---------------------------------
+
+Exercici 1
+Donades les DF següents, determina amb la PK que seleccionis, si compleix totes les formes normals fins a la 3ra i sinó, aplica-ho perquè ho estiguin TOTES les taules.
+Mostra el resultat final de les taules que quedarien aplicant les FN, tot justificant els passos.
+
+ 
+Espècie  { Animal }
+Animal {Codi, Secció}
+Codi {}
+Secció{Codi}
+Preu{Descompte}
+Edat{ Espècie }
+Descompte {}
+
+TAULA 1: Animal, Preu {Espècie, Codi, Secció, Edat, Descompte}  Clau identificadora
+
+
+TAULA 2: Animal {Codi, Secció}
+TAULA 3: Preu{Descompte}
+
+
+El procés de fer la 2FN queda així:
+
+
+TAULA 1: Animal, Preu {Espècie, Edat} 2FN!!! :D
+TAULA 2: Animal {Codi, Secció}      2FN
+TAULA 3: Preu{Descompte}         2FN i 3FN
+
+
+    Cal veure si la TAULA 1 està en 3FN
+TAULA 1: Animal, Preu { Edat} 3FN
+TAULA 4: Edat{ Espècie } 2FN i 3FN
+
+    Cal veure si la TAULA 2 està en 3FN
+TAULA 2: Animal { Secció}      3FN
+Codi {}
+TAULA 5: Secció{Codi}
+
+--------------
+Ejemplo Num 2º
+--------------
+
+Metge-->{}
+Pilot-->{Metge}
+Operació-->{Metge, responsable}
+Data-->{}
+Responsable-->{metge,operacio}
+
+Operacio,Metge > {No pot ser clau}
+Operacio,pilot -> {No pot ser clau}
+Operacio, data -> {metge, pilot,responsable}
+Operacio, responsable-->{No pot ser clau}
+
+No cal continuar pq ja hem trobat una clau identificadora: {operacio,data}
+
+PRIMERA FORMA NORMAL:
+
+Ha de cumplir:
+    • No hi hagin registres duplicats
+    • Els atributs no poden ser calculats
+    • Els atribut no poder estar multivaluats
+    • El nom dels atributs no poden estar repetits
+    • No poden haver atributs compostos
+
+
+SEGON FORMA NORMAL:
+
+Ha de cumplir:
+    • Ha d’estar en 1FN.
+    • Si la clau identificadora NO esta formada per més d’un atribut  Està en 2FN.
+En cas contrari, cal veure si es atributs de clau de forma independent determinen algún atribut NO CLAU.
+
+
+Partim de la clau identificador: {operacio,data}
+
+TAULA 1: Operacio, data -> {metge, pilot,responsable}
+
+Operació-->{Metge, responsable}
+Data-->{}
+
+No està en 2FN ja que Operació determina metge i responsable.
+
+Cal normalitzar-la:
+
+TAULA 1: Operacio, data -> {metge, pilot,responsable} = {pilot}   2FN
+
+TAULA 2: Operació-->{Metge, responsable}  Està en 2FN ja que la clau no es composta.
+
+
+
+TERCERA FORMA NORMAL:
+
+Ha de cumplir:
+    • Ha d’estar en 2FN.
+    • Està en 3FN si no hi ha més d’un atribut NO clau.
+    • Està en 3FN si no hi ha algun atribut NO CLAU que determini a un altre NO CLAU.
+
+Partim ara de les taules:
+
+TAULA 1: Operacio, data ->  {pilot}   Està en 3FN
+
+TAULA 2: Operació-->{Metge, responsable}  Cal veure si Metge detemina Responsable o 
+viceversa
+Metge-->{}
+TAULA 3: Responsable-->{metge}
+
+Resultat d’aplicar la 3FN:
+
+TAULA 2: Operació-->{responsable}   3FN
+TAULA 3: Responsable-->{metge}
+
+Cal veure si la nova taula (3), està en 1FN, 2FN i 3FN.
+
+Està en 2FN i 3FN ja que els atributs clau i no clau no estan formats per més d’un atribut.
+
+RESULTAT FINAL:
+
+TAULA 1: Operacio, data ->  {pilot}  
+TAULA 2: Operació-->{responsable}   3FN
+TAULA 3: Responsable-->{metge}
+
+

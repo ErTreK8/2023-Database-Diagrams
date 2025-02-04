@@ -1,0 +1,197 @@
+PDF1 Exercici 1
+---------------
+
+Nom    --> {}
+Tipus  --> {}
+Tasca  --> {tipus}
+Data   --> {}
+Hores  --> {}
+
+Resultat en 2FN
+
+Taula 1: Nom, data, tasca --> {tipus, hores}
+
+Taula 2: Tasca  --> {tipus} esta en 2FN ja que L'atribut clau no esta compost per mes d'un atribut
+
+[Mirar los atributos de dentro y sepraralo por tablas y su forma normal]
+
+[Si es solo 1 cosa en la PK es SI O SI 2FN(si no tiene nada los campos escojidos para hacer la PK es 2FN(En plan animal{} especia{} animal, especie PK))]
+
+Cal veure si la taula 1 y la taula 2 estan en 3FN:
+---------------
+PDF1 Exercici 2
+---------------
+
+Metge	     --> {}
+Pilot 	     --> {metge}
+Operacio     --> {metge, Responsable}
+Data 	     --> {}
+Responsable  --> {metge, operacio}
+
+Operacio, data  --> {Metge, pilot, Responsble}
+Operacio  no es 2FN PORQUE sus valores salen en la de arriba que es la tabla 1 Entonces se crea la TABLA 2 y se quita metge y responsable de la TABLA 1 GOOOOD. 
+2FN si ninguna clave primaria influye en la de dentro 
+si operacion tiene metge responsable entonces en operacio,data que solo tiene pilot no pasa nada ya que no influye sus campos.
+
+En la de 3NF se cojen los de dentro en vez de la claves. Si una de las 2 se coje lo de otro de dentro se quita de la de arriba
+---------------
+PDF1 Exercici 3
+---------------
+
+Ciurcuit    --> {}
+Pilot  	    --> {}
+Pos  	    --> {}
+Asistencia  --> {}
+Data	    --> {}
+
+Asistencia, circuit, pilot  --> {Pos, Data}
+
+---------------
+PDF1 Exercici 4
+---------------
+
+Circuit 	--> {Aforament, Record, Pilot2}
+Pilot1  	--> {}
+Pos  		--> {}
+Aforament  	--> {Circuit, Record, Pilot2}
+Asistencia 	--> {Data, Aforament, Record, Pilot, Pilot}
+Data  		--> {}
+Record  	--> {Aforament, Circuit, Pilot2}
+Pilot2  	--> {Aforament, Circuit, Record}
+
+Asistencia, Pilot --> {Circuit, Pos, Aforament, Data, Record y Pilot}
+
+
+----------------
+PDF2 Exercici 5
+----------------
+
+art1 --> {art4}
+art2 --> {art5}
+art3 --> {}
+art4 --> {art1}
+art5 --> {art2}
+
+art1, art2 --> {No sa pot}
+art1, art3 --> {No}
+art1, art4 --> {No}
+art1, art5 --> {No}
+
+Clau Primaria art2, art3 --> {art1, art4, art5}
+
+TAULA 1 :     art2, art3 --> {art1, art4, art5}
+
+art2 --> {art5}
+art3 --> {}
+
+TAULA 1 :  art2, art3 --> {art1, art4}
+Taula 2 --> art2{art5}
+
+
+
+Taula 1 art2, art3{art1, art4}
+art1 --> {art4}
+art4 --> {art1}
+
+
+Taula 1 art2,art3{art1}
+
+Taula 2 art2{art5}
+
+Taula 3 art1{art4}
+
+
+-----------------------------
+A  {B}
+B{C,D}
+C{}
+D{}
+E {A}
+
+
+B,A{C,E}
+B,C {A}
+B,D{A,C,E} --> PK
+B,E  {A,E}
+
+------------------------------------
+
+TAULA 1 
+B,D{A,C,E} --> PK
+
+B{C,D}
+
+------------------------------------
+
+TAULA 1 -->  B,D{A,E} --> PK 2FN 
+TAULA 2 -->  B{C,D} 2FN y 3FN
+TAULA 1 -->  B,D{A,E} --> PK 2FN 
+
+------------------------------------
+
+TAULA 1 -->  B,D{A,E} --> PK 2FN 
+
+TAULA 3 -->  E {A}
+
+TAULA 1 -->  B,D{E} --> PK 2FN y 3FN
+
+---------
+
+TAULA 2 -->  B{D} 2FN y 3FN
+
+---------
+
+RESULTAT 
+
+TAULA 1 -->  B,D{E} --> PK 2FN y 3FN
+
+TAULA 2 -->  B{D,C} 2FN y 3FN
+
+TAULA 3 -->  E {A} 2FN y 3FN
+
+
+
+
+
+--------------------------------------------------------------------------
+
+
+
+
+
+
+
+Atr1 {atr2}
+Atr2{ }
+Atr3{atr4,atr5,atr6}
+Atr4{atr5,atr6,atr7}
+Atr5{atr2}
+Atr6{ }
+Atr7{atr6}
+
+------------------------------------
+TAULA 1: {atr1,atr4} ->{atr2,atr3,atr5,atr6,atr7}
+Atr1 {atr2}
+Atr4{atr5,atr6,atr7}
+TAULA 1: atr1,atr4 {atr3} 2FN
+TAULA 2: Atr1 {atr2} 2FN
+TAULA 3: Atr4 {atr5,atr6,atr7} 2FN
+------------------------
+TAULA 1: atr1,atr4 {atr3} 2FN y 3FN
+TAULA 2: Atr1 {atr2}2FN y 3FN
+TAULA 3: Atr4 {atr5,atr7}
+Atr5{atr2} x
+Atr6{ } x
+Atr7{atr6} ok
+TAULA 4: Atr7{atr6}
+------------------------
+TAULA 1: atr1,atr4 {atr3} 2FN y 3FN
+TAULA 2: Atr1 {atr2}2FN y 3FN
+TAULA 3: Atr4 {atr5,atr7} 2FN y 3FN
+TAULA 4: Atr7{atr6} 2FN y 3FN
+
+
+
+
+
+

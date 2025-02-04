@@ -1,0 +1,136 @@
+PDF1 Exercicis 1,2,3,4
+---
+Exercici 1
+---
+
+Cinema:{CIF(PK), Poblacio, SalanumSala(PK,FK), SalaCapacitatMax PoblacioCodiPostal(FK)}
+Poblacio:{CodiPostal(pk), nom}
+Entrada:{Codi(PK), Tipus}
+Pel·licula:{Ref(PK), titul, durada}
+Sala:{NumSala(PK), Files, columnes, CapacitatMax, CinemaCIF(PK,FK)}
+Projecta:{Hora,preu,diasetmana}
+
+---
+Exercici 2
+---
+
+Jugador: {nom(pk), email, Especialitat, SoldatCodi(FK)}
+Conquereix:{Data(PK), JugadorNom, CiutatNom}
+Ciutat:{Nom(PK), capacitat}
+Soldat:{Codi(pk), Habilitatforça, Habilitatmagia, tipus}
+Habilitat:{magia, força}
+Especialitat:{Especialitat(PK) JugadorNom(PK,FK)}
+
+----
+Exercici 3
+---
+
+Pais:{Nom(pk)}
+Ven:{Data, Nom(PK,FK)}
+Mina:{Referencia(PK), Estat, Nom, Tipus, Eficacia}
+Afecta:{Data(PK), AfectatDNI(FK,PK), MinaReferencia(PK,FK), LessioNom(PK,FK)}
+Lesio:{Nom(PK), Costat, Cost}
+Especialitat:{LessioNom(PK,FK), MetjeDNI(PK,FK)}
+Metge:{DNI(pk), nom, Telf}
+Afectat:{DNI(PK), nom, Data Naix.}
+
+----
+Exercici 4
+---
+
+Ingredient:{Nom(PK), HidratsCarboni, Proteines, Greixos}
+Vitamines:{IngredientNom(PK,FK), vitamina(PK)}
+Plats:{Nom(PK), preuExtra, proteines, greixos, vitamines, hidrats de carboni, VideoNom(FK)}
+Compost:{qttpersona(PK), qtt, unitats, IngredientNom(PK,FK), PlatsNom(PK,FK)}
+Basic:{Nif(PK), nom, email, login, data naixament, Observacions, ComentarisTitol(FK)}
+Premium:{Nif(PK), nom, email, login, data naxiament, credit card, ComentarisTitol(FK)}
+Tria:{Data(PK), PlatsNom(PK,FK), ClientNif (PK,FK)}
+Menus:{Nom(PK), preu, ClassesTipus(FK), PlatsNom(FK)}
+Classes:{Tipus(PK), preu}
+Tenen:{ClassesTipus(PK,FK), PlatsNom(PK,FK)}
+Video:{Nom(PK), ComentarisTitol(FK)}
+Versio:{Data(PK), VideoNom(PK)}
+Comentrari:{Titol(PK), text, DataHora}
+
+---
+PDF 2 EX 1,2,3
+---
+Exercici 1
+---
+
+Insecte:{Nom(PK), Proteines}
+Dieta:{Nom(PK), DataInici(PK)}
+Conte:{Quant, DietaNom(PK), InsecteNom(PK)}
+Descendents:{PersonaNom(PK,FK), PersonaNom1(PK,FK)}
+Heroi:{Nom(PK), Personalitat}
+Superheroi:{Nom(PK), Personalitat, DietaNom(PK,FK)}
+EstatsAnims:{Nom(PK,FK), estat}
+Planeta:{Nom(PK), %Oxigen, Gravetat}
+Guanya:{Data(PK), SuperheroiNom(PK,FK), PlanetaNom(PK,FK)}
+Accions:{Nom(PK), Cost}
+Fa:{Data(PK), AccionsNom(PK,FK), SuperheroiNom(PK,FK)}
+
+---
+Exercici2
+---
+
+Carnívor:{Nomllati(PK), NomCatala, nomAngles, EspecieLlati(PK), EspecieCatala, EspecieAngles, velocitat}
+Vegetarià:{Nomllati(PK), NomCatala, nomAngles, EspecieLlati(PK), EspecieCatala, EspecieAngles, velocitat}
+MenjaCarnivor:{AnimalNomLlati1(PK,FK), AnimalNomLlati2(PK,FK), AnimalEspecie1Llati(PK,FK), AnimalEspecie2Llati(PK,FK)}
+Herba:{NomLlati(PK), NomCatala, NomAngles, Tipus}
+MenjaVegetaria:{AnimalNomLlati(PK,FK), AnimalEspecieLlati(PK,FK), HerbaNomLlati(PK,FK)}
+
+---
+Exercici 3
+---
+
+Mat.Perilloses1:{Matricula(PK), Tara, PesBrut}
+Normal1:{Matricula(PK), Tara, PesBrut}
+Conductor:{Matricula(PK,FK), DNI(PK), TipusCarnet, Nom}
+Revisio:{Data(PK), Preu, CaminoMatricula(PK,FK)}
+Reparacio:{Data(PK), Preu, Dni, Nom, CamioMatricula(PK,FK)}
+Recanvi:{Nom(PK)}
+Requereix:{Quant, RecanviNom(PK,FK), ReparacioData(PK,FK)}
+Preu:{Data(PK), Preu, RecanviNom(PK,FK)}
+Transporta1:{Data(PK), CamioMatricula(PK,FK), ArticleNom(PK,FK)}
+Transporta2:{Data(PK), preu, ConductorNom, ConductorDNI, ConductorTipusCarnet, CamioMatricula(PK,FK), ArticleNom(PK,FK)}
+Precaucions:{TransportaData(PK), Precaucions(PK)}
+Normal2:{Nom(PK)}
+Mat.Perilloses2:{Nom(pk)}
+Caracteristiques:{ArticlesNom(PK,FK), Caracterisiques(PK)}
+
+---
+Exercici Examen
+---
+
+Hotel:{Nom(PK), HabitacioNum}
+TelContacte:{Nom(PK,FK), Telef(PK)}
+Valoracio:{HotelNom1(PK,FK),HotelNom2(PK,FK), Neteja, AtClient, Qualitat/preu}
+Habitacio:{Num(PK), tipus, HotelNom(PK,FK)}
+Imoble:{Codi(PK), color, nom, preu, descripcio}
+Material:{InmobleCodi(PK,FK), Material(PK)}
+Servei:{Nom(PK), Preu}
+Disposa:{HabitacioNum(PK,FK), Servei(PK,FK)}
+Estança:{DataArribada(PK), DataSortida, Valoracio, HabitacioNum(PK,FK), ClientDNI(PK,FK)}
+Client:{Nom(PK), Email, nom, cognom}
+Basic:{ClientDNI(PK), ClientEmail, ClientNom, ClientCognom}
+Vip:{ClientDNI(PK), ClientEmail, ClientNom, ClientCognom, categoria, CodiAssegurança, DataVencimentAssegurança}
+ActeVandalic:{Data(PK), qtt, ClientBasicDNI(PK,FK), HabitacioNum(PK,FK), ImobleCodi(PK,FK)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
